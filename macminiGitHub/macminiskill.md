@@ -1,205 +1,99 @@
-# 当前技能清单与状态报告
+# macmini 技能与系统状态完整报告
 
-生成时间：2026-04-11 12:54 (Asia/Shanghai)
-
-## 一、概览
-
-当前系统同时存在两类技能来源：
-
-1. **用户侧已安装技能**，主要位于 `~/.agents/skills/`
-2. **OpenClaw 自带技能**，主要位于 `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/`
-
-整体判断：
-- 技能覆盖面很广，涵盖办公、检索、代码、内容、设计、自动化、金融分析等方向
-- **Feishu 相关能力当前最成熟，且已有配置可直接使用**
-- 部分系统技能仍存在缺失依赖、未配置 API Key、未启用渠道、未安装本地 CLI 等问题
-- 有少量技能存在**重复来源或多版本并存**，后续建议做一次去重和优先级梳理
+生成时间：2026-04-11 13:00 (Asia/Shanghai)
+生成方式：基于当前机器实时检查结果，不是静态猜测
 
 ---
 
-## 二、当前发现的技能来源
+## 1. 当前系统状态
 
-### 1. 用户侧技能（`~/.agents/skills/`）
+### 1.1 OpenClaw 运行状态
+- OS: macOS 26.3.1 (arm64)
+- Node: 24.13.1
+- Dashboard: http://127.0.0.1:18789/
+- Channel: stable
+- Gateway: 本地运行，状态正常，可达
+- Gateway service: LaunchAgent installed / loaded / running
+- Node service: 未安装
+- Agents: 1
+- Sessions: 3 active
+- 默认主会话模型: gpt-5.4
+- Heartbeat: 30m (main)
+- Update: 有可用更新，版本提示为 `2026.4.10`
 
-已发现的技能包括但不限于：
+### 1.2 通道状态
+- Feishu: **ON / OK / configured**
 
-- 1password
-- a-stock-analysis
-- agent-reach
-- agent-self-reflection
-- ai-image-generation
-- ai-social-media-content
-- ai-video-generation
-- aliyun-qwen-image
-- aliyun-qwen-tts-voice-clone
-- aliyun-wan-video
-- aminer-open-academic
-- architecture-designer
-- autoglm-browser-agent
-- autoglm-deepresearch
-- autoglm-generate-image
-- autoglm-open-link
-- autoglm-search-image
-- autoglm-websearch
-- automation-workflows
-- backtest-expert
-- blog-writer
-- brainstorming
-- business-analytics-reporter
-- clawdefender
-- Code
-- competitor-research
-- content-strategy
-- copywriting
-- daily-stock-report
-- data-and-funnel-analytics
-- debug-pro
-- discount-marketing-strategy
-- email-marketing
-- email-sequence
-- executing-plans
-- feishu-chat-history
-- feishu-cron-reminder
+### 1.3 安全审计摘要
+当前没有 critical，但有 5 个 warn，1 个 info。
+
+主要问题：
+1. `gateway.trustedProxies` 未配置，如果以后挂反向代理，需要补可信代理配置
+2. `gateway.controlUi.allowInsecureAuth=true` 已启用，属于调试型风险配置
+3. 存在危险配置标志启用
+4. `gateway.nodes.denyCommands` 有部分规则无效
+5. Feishu doc create 具备给请求者授权的能力，需要注意权限边界
+
+### 1.4 当前总体判断
+- **系统本体是在线可用的**
+- **Feishu 通道已就绪**
+- **GitHub CLI 已安装且已登录**（前面已验证）
+- **技能层是“数量足够多，但完整度不一致”**
+
+---
+
+## 2. 技能总览
+
+### 2.1 总数
+- Total: **127**
+- Eligible: **91**
+- Disabled: **0**
+- Blocked by allowlist: **0**
+- Missing requirements: **36**
+
+### 2.2 结论
+当前不是“技能缺失”，而是：
+- 技能装了很多
+- 其中 **91 个当前可用**
+- **36 个缺依赖或缺配置**
+
+这说明系统已经有很强的扩展能力，但配置质量参差不齐。
+
+---
+
+## 3. 当前可用技能清单（按实际检查结果）
+
+以下技能被 `openclaw skills check` 判定为 **可以使用**：
+
 - feishu-doc
 - feishu-drive
 - feishu-perm
-- feishu-screenshot
-- feishu-send-file
-- feishu-voice
-- FFmpeg Video Editor
-- find-skills
-- frontend-design
-- git-essentials
-- gog
-- imagegen
-- infographic
-- interview-designer
-- logo-design-guide
-- market-research
-- memory
-- multi-search-engine
-- notebooklm
-- obsidian-ontology-sync
-- opencode-controller
-- p-image
-- ppt-visual
-- proactive-self-improving-agent
-- research-paper-writer
-- security-auditor
-- self-improving
-- SEO
-- seo-content-writer
-- session-logs
-- skill-creator
-- skill-vetter
-- social-content
-- social-media-carousel
-- Social Media Scheduler
-- speech-to-text
-- supabase-postgres-best-practices
-- tavily-search
-- tavily-web-search-wrapper
-- test-runner
-- tmux
-- ui-ux-pro-max
-- video-frames
-- web-design-guidelines
-- writing-plans
-- x-monitor
-
-### 2. OpenClaw 自带技能（部分）
-
-已发现的技能包括但不限于：
-
+- feishu-wiki
+- tavily
 - 1password
 - apple-notes
 - apple-reminders
-- bear-notes
-- blogwatcher
-- blucli
-- bluebubbles
-- camsnap
-- canvas
 - clawhub
-- coding-agent
-- discord
-- eightctl
-- gemini
 - gh-issues
 - github
-- gifgrep
 - gog
-- goplaces
 - healthcheck
-- himalaya
-- imsg
 - mcporter
-- model-usage
-- nano-pdf
 - node-connect
-- notion
-- obsidian
-- openai-whisper
-- openai-whisper-api
-- openhue
-- oracle
-- ordercli
-- peekaboo
-- sag
-- session-logs
-- sherpa-onnx-tts
-- slack
-- songsee
-- sonoscli
-- spotify-player
-- summarize
-- taskflow
-- taskflow-inbox-triage
-- things-mac
+- skill-creator
 - tmux
-- trello
 - video-frames
-- voice-call
-- wacli
 - weather
-- xurl
-
-另外还发现一些扩展型技能：
-- acp-router
-- diffs
-- feishu-wiki
-- tavily
-- prose
-- qqbot-channel
-- qqbot-media
-- qqbot-remind
-- wiki-maintainer
-- obsidian-vault-maintainer
-- tlon-skill
-
----
-
-## 三、状态结论
-
-本次状态判断主要依据：
-- `openclaw skills check` 的检查结果
-- 技能目录实际存在情况
-- 已知长期配置记忆（如 Feishu）
-
-### 1. 当前大概率可用或未发现明显缺依赖的技能
-
-以下技能未在本次检查中被标记为缺失依赖，通常表示当前环境至少没有发现显式缺件：
-
-- 1password
 - a-stock-analysis
 - agent-reach
+- self-reflection
 - ai-image-generation
 - ai-social-media-content
 - ai-video-generation
 - aliyun-qwen-image
 - aliyun-qwen-tts-voice-clone
 - aliyun-wan-video
-- aminer-open-academic
+- aminer-data-search
 - architecture-designer
 - autoglm-browser-agent
 - autoglm-deepresearch
@@ -225,9 +119,6 @@
 - executing-plans
 - feishu-chat-history
 - feishu-cron-reminder
-- feishu-doc
-- feishu-drive
-- feishu-perm
 - feishu-screenshot
 - feishu-send-file
 - feishu-voice
@@ -235,13 +126,12 @@
 - find-skills
 - frontend-design
 - git-essentials
-- gog
 - imagegen
 - infographic
 - interview-designer
 - logo-design-guide
-- market-research
-- memory
+- Market Research
+- Memory
 - multi-search-engine
 - notebooklm
 - obsidian-ontology-sync
@@ -267,266 +157,11 @@
 - writing-plans
 - x-monitor
 
-### 2. 当前明确缺少依赖或配置的技能
-
-`openclaw skills check` 直接报告以下技能存在依赖缺失或配置不足：
-
-- bear-notes
-- blogwatcher
-- blucli
-- bluebubbles
-- camsnap
-- coding-agent
-- discord
-- eightctl
-- gemini
-- gifgrep
-- goplaces
-- himalaya
-- imsg
-- model-usage
-- nano-pdf
-- notion
-- obsidian
-- openai-whisper
-- openai-whisper-api
-- openhue
-- oracle
-- ordercli
-- peekaboo
-- sag
-- session-logs
-- sherpa-onnx-tts
-- slack
-- songsee
-- sonoscli
-- spotify-player
-- summarize
-- things-mac
-- trello
-- voice-call
-- wacli
-- xurl
-
-### 3. 缺失项类型归纳
-
-本次缺失项大致分为以下几类：
-
-- **本地命令行工具未安装**
-  - 例如：`gh`、`op`、`rg`、`curl`、`whisper`、`nano-pdf` 等
-- **环境变量/API Key 未配置**
-  - 例如：`NOTION_API_KEY`、`OPENAI_API_KEY`、`TRELLO_API_KEY` 等
-- **渠道级配置未启用**
-  - 例如：Slack、Discord、语音通话插件
-- **依赖本地应用或服务未就绪**
-  - 例如：BlueBubbles、Spotify、Sonos、Things、Obsidian CLI
-
 ---
 
-## 四、重点技能说明摘录
+## 4. 当前缺依赖/缺配置技能
 
-以下为本次抽样读取的技能使用说明摘要。
-
-### 1. 1password
-
-**用途**：
-- 安装并使用 1Password CLI (`op`)
-- 登录账户、读取密钥、进行安全注入
-
-**关键说明**：
-- 必须在 **tmux 会话** 中运行 `op`
-- 先执行 `op signin`，再执行 `op whoami`
-- 不应将密钥打印到日志、聊天或代码中
-
-**状态判断**：
-- 未被检查器标记为缺失依赖
-- 但真正使用前，仍需确认 `op` 可执行、桌面应用联动已开启且账户已登录
-
-### 2. feishu-doc
-
-**用途**：
-- 读取和写入飞书 Doc、Wiki、Sheet、Bitable
-- 支持 create / write / append / blocks 操作
-
-**关键说明**：
-- 长文档应分块追加，避免一次性整篇写入
-- 依赖 Feishu 应用鉴权配置
-- 可用于自动生成文档、更新报告、持续追加内容
-
-**状态判断**：
-- 当前是本环境中最成熟的一组能力之一
-- 已知 Feishu 应用配置存在，消息接收权限已获批准
-
-### 3. tavily-search
-
-**用途**：
-- 网络搜索
-- 页面内容提取
-- 网站爬取
-- 深度研究
-
-**关键说明**：
-- 已通过 mcporter 配置 Tavily MCP
-- 支持 `search`、`extract`、`crawl`、`map`
-- 适合做联网资料检索和研究任务
-
-**状态判断**：
-- 当前看起来可用
-- 适合后续用来做实时信息收集和研究型任务
-
-### 4. Code
-
-**用途**：
-- 为代码任务提供结构化工作流
-- 强调先规划、再执行、再验证
-
-**关键说明**：
-- 编码前先拆步骤
-- 每个阶段都要有验证动作
-- 只记录用户明确要求保存的偏好
-- 更偏“工作流规范”，而不是一键代做全部开发
-
-**状态判断**：
-- 可作为代码任务方法论技能使用
-- 不依赖额外网络或外部服务
-
-### 5. weather
-
-**用途**：
-- 查询天气与天气预报
-
-**关键说明**：
-- 适合当前天气、未来天气、出行天气规划
-- 不适合历史气候分析、极端天气预警、专业气象研判
-- 依赖 `curl`
-
-**状态判断**：
-- 说明完整
-- 但具体能否使用要看 `curl` 是否在运行环境可用
-
-### 6. github
-
-**用途**：
-- 通过 `gh` CLI 查询和操作 GitHub
-- issue、PR、CI、评论、日志查看等
-
-**关键说明**：
-- 适合 GitHub 仓库运营与协作
-- 不适合复杂网页 UI 手工流程
-- 使用前需要完成 `gh auth login`
-
-**状态判断**：
-- 技能说明完备
-- 真正可用性取决于 `gh` 是否安装及是否已认证
-
----
-
-## 五、重复或重叠技能观察
-
-当前环境存在若干重复或重叠来源：
-
-- `1password` 同时存在用户安装版与系统版
-- `gog` 同时存在用户安装版与系统版
-- `tmux` 同时存在用户安装版与系统版
-- `video-frames` 同时存在用户安装版与系统版
-- `session-logs` 同时存在用户安装版与系统版
-- `skill-creator` 同时存在用户安装版与系统版
-- `content-strategy` 存在多处目录
-- `seo-content-writer` 存在多处目录
-
-**影响**：
-- 不一定马上出问题
-- 但可能导致后续使用时版本来源不清晰、说明不一致、维护困难
-
-**建议**：
-- 给每个重复技能明确一个“主版本”
-- 其他版本标记为备用或待移除
-
----
-
-## 六、优先级建议
-
-### 第一优先级，建议保留并重点维护
-
-这些技能要么当前已知配置成熟，要么用途广、复用率高：
-
-- feishu-doc
-- feishu-drive
-- feishu-perm
-- feishu-chat-history
-- feishu-cron-reminder
-- tavily-search
-- tavily-web-search-wrapper
-- Code
-- git-essentials
-- security-auditor
-- tmux
-- notebooklm
-- weather
-- github
-
-### 第二优先级，建议按需补依赖
-
-这些技能很有用，但依赖未补齐：
-
-- github / gh-issues
-- notion
-- obsidian
-- openai-whisper / openai-whisper-api
-- session-logs
-- summarize
-- coding-agent
-- slack
-- discord
-- trello
-
-### 第三优先级，建议后续评估是否真的需要
-
-这类技能偏场景化或较少使用，可等核心能力稳定后再处理：
-
-- sonoscli
-- spotify-player
-- things-mac
-- bluebubbles
-- bear-notes
-- ordercli
-- openhue
-- songsee
-- wacli
-- xurl
-
----
-
-## 七、后续建议动作
-
-建议按以下顺序继续：
-
-1. **做一次“技能去重”**
-   - 明确每个重复技能的主版本
-   - 标注备用版本或废弃版本
-
-2. **做一次“高频技能可用性体检”**
-   - 重点检查 Feishu、Tavily、GitHub、Notion、Weather、tmux、session-logs
-   - 逐个确认：命令是否存在、认证是否完成、是否能跑通最小示例
-
-3. **修复关键缺依赖**
-   - 先补最常用能力，不要一次性全装
-   - 优先补：`gh`、`rg`、`curl`、Whisper、Notion API、Slack/Discord 配置
-
-4. **建立一个长期维护表**
-   - 字段建议：技能名、来源、用途、依赖、状态、主版本、备注
-
----
-
-## 八、本次结论
-
-一句话总结：
-
-> 当前系统的技能生态已经很丰富，其中 Feishu、Tavily、代码工作流、研究写作类能力比较成型；但部分系统技能仍停留在“已安装说明、未完成依赖”的状态，下一步最值得做的是去重、体检、补关键依赖。
-
----
-
-## 附：本次检查中明确看到的缺依赖项
+以下技能被判定为 **缺少依赖或配置不完整**：
 
 - bear-notes (bins: grizzly)
 - blogwatcher (bins: blogwatcher)
@@ -564,3 +199,359 @@
 - voice-call (config: plugins.entries.voice-call.enabled)
 - wacli (bins: wacli)
 - xurl (bins: xurl)
+
+### 4.1 缺失原因分类
+
+#### A. 缺本地 CLI / bin
+典型：
+- bear-notes
+- blogwatcher
+- blucli
+- camsnap
+- gemini
+- gifgrep
+- himalaya
+- imsg
+- nano-pdf
+- obsidian
+- openai-whisper
+- openhue
+- oracle
+- ordercli
+- peekaboo
+- session-logs
+- songsee
+- sonoscli
+- summarize
+- things-mac
+- wacli
+- xurl
+
+#### B. 缺环境变量 / API Key
+典型：
+- goplaces
+- notion
+- openai-whisper-api
+- sag
+- sherpa-onnx-tts
+- trello
+
+#### C. 缺渠道或插件配置
+典型：
+- bluebubbles
+- discord
+- slack
+- voice-call
+
+#### D. 缺可选多实现之一
+典型：
+- coding-agent
+- spotify-player
+
+---
+
+## 5. 重复技能排查结果
+
+已确认存在重复技能，说明同一个技能在多个来源共存，或者同名多版本并存。
+
+### 5.1 明确重复项
+
+1. `1password` ×2
+- `~/.agents/skills/1password-1.0.1/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/1password/SKILL.md`
+
+2. `content-strategy` ×2
+- `~/.agents/skills/content-strategy-0.1.0/SKILL.md`
+- `~/.agents/skills/content-strategy/SKILL.md`
+
+3. `feishu-doc` ×2
+- `~/.agents/skills/feishu-doc-1.2.7/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/dist/extensions/feishu/skills/feishu-doc/SKILL.md`
+
+4. `feishu-drive` ×2
+- `~/.agents/skills/feishu-drive-1.0.0/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/dist/extensions/feishu/skills/feishu-drive/SKILL.md`
+
+5. `feishu-perm` ×2
+- `~/.agents/skills/feishu-perm/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/dist/extensions/feishu/skills/feishu-perm/SKILL.md`
+
+6. `gog` ×2
+- `~/.agents/skills/gog/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/gog/SKILL.md`
+
+7. `seo-content-writer` ×2
+- `~/.agents/skills/seo-content-writer-2.0.0/SKILL.md`
+- `~/.agents/skills/seo-content-writer/SKILL.md`
+
+8. `session-logs` ×2
+- `~/.agents/skills/session-logs-1.0.0/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/session-logs/SKILL.md`
+
+9. `skill-creator` ×2
+- `~/.agents/skills/skill-creator-0.1.0/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/skill-creator/SKILL.md`
+
+10. `tmux` ×2
+- `~/.agents/skills/tmux-1.0.0/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/tmux/SKILL.md`
+
+11. `video-frames` ×2
+- `~/.agents/skills/video-frames-1.0.0/SKILL.md`
+- `~/.npm-global/lib/node_modules/@qingchencloud/openclaw-zh/skills/video-frames/SKILL.md`
+
+### 5.2 重复技能是否有冲突
+
+#### 明显重复且内容高度一致
+这些大概率只是不同来源复制，风险较低，但会造成维护混乱：
+- 1password
+- tmux
+- video-frames
+- session-logs
+
+#### 重复但说明内容存在差异
+这些需要人工定主版本：
+- feishu-doc
+- feishu-drive
+- feishu-perm
+- seo-content-writer
+- content-strategy
+- skill-creator
+- gog
+
+### 5.3 抽样差异判断
+
+#### feishu-doc
+- 用户版更偏完整文档工作流，强调长文档 chunk append
+- 内置版更偏工具动作说明，强调 action/read/write/append/block 用法
+- **结论**：不是坏重复，但确实存在“双版本说明并存”
+
+#### tmux
+- 用户版偏实操和 clawdbot 风格的 socket/session 习惯
+- 内置版偏 OpenClaw 通用说明和场景边界
+- **结论**：内容相近，但语境不同，属于功能同名、文档风格不同
+
+#### seo-content-writer
+- 一个版本是 `2.0.0`
+- 一个版本是 `6.0.0`
+- **结论**：这是典型多版本并存，建议保留高版本并清理旧版
+
+---
+
+## 6. 配置完整性判断
+
+### 6.1 已明确完整或接近完整
+
+#### Feishu 体系
+当前最完整。
+依据：
+- OpenClaw status 显示 Feishu channel = ON / OK / configured
+- 长期记忆中已记录 Feishu app 已配置、消息权限已批准
+- 相关技能 `feishu-doc / drive / perm / wiki` 均显示可用
+
+#### GitHub 体系
+当前可用度高。
+依据：
+- `gh` 已安装
+- `gh auth status` 已登录 `leoyb1010`
+- `github` 技能被判定可用
+- 实际已完成 GitHub 文件上传
+
+#### Tavily 体系
+当前可用。
+依据：
+- `tavily` 与 `tavily-search` 均在可用列表
+- 技能文档写明已通过 mcporter 配置
+
+### 6.2 部分完整
+
+#### 1Password
+- 技能显示可用
+- 但要真正调用 secret，还需要确认 `op signin` 在 tmux 内跑通
+- **结论**：理论可用，未做实操验证
+
+#### Apple Notes / Apple Reminders
+- 技能显示可用
+- 但未实测过 CLI 的真实返回
+- **结论**：大概率可用，但未做端到端验证
+
+#### gog / notebooklm / obsidian-ontology-sync / 各类 AI 生成技能
+- 系统未报缺依赖
+- 但未逐个执行 smoke test
+- **结论**：处于“检查通过，未逐项验活”状态
+
+### 6.3 明确不完整
+以下体系当前配置明确不完整：
+- Notion
+- Slack
+- Discord
+- Trello
+- OpenAI Whisper API
+- BlueBubbles
+- Voice Call
+- Obsidian CLI 体系
+- 本地媒体与设备类一批技能
+
+---
+
+## 7. 重点技能说明与依赖状态
+
+下面这部分不是全量 127 个逐字抄 SKILL.md，而是给出当前最重要、最值得用的技能摘要，包含用途、依赖、状态。
+
+### 7.1 feishu-doc
+- 用途：读写飞书文档、Wiki、Sheet、Bitable
+- 关键能力：read / create / write / append / blocks
+- 依赖：Feishu 鉴权配置
+- 当前状态：**可用**
+- 备注：当前环境中最成熟的能力之一
+
+### 7.2 feishu-drive
+- 用途：飞书云空间文件管理
+- 依赖：Feishu 鉴权配置
+- 当前状态：**可用**
+
+### 7.3 feishu-perm
+- 用途：飞书权限管理
+- 依赖：Feishu 鉴权配置
+- 当前状态：**可用**
+
+### 7.4 feishu-wiki
+- 用途：飞书 Wiki 读写或结构访问
+- 依赖：Feishu 鉴权配置
+- 当前状态：**可用**
+
+### 7.5 github
+- 用途：通过 `gh` 处理 GitHub issues、PR、CI、API 查询
+- 依赖：`gh` + 登录认证
+- 当前状态：**可用，且已实测成功上传文件**
+
+### 7.6 gh-issues
+- 用途：拉 GitHub issues，并可进一步驱动修复/PR 流程
+- 依赖：`gh`
+- 当前状态：**可用**
+
+### 7.7 weather
+- 用途：天气和天气预报
+- 依赖：`curl`
+- 当前状态：**可用**
+
+### 7.8 tmux
+- 用途：控制 tmux 会话，适合交互式 CLI
+- 依赖：`tmux`
+- 当前状态：**可用**
+- 备注：存在重复版本
+
+### 7.9 1password
+- 用途：通过 `op` 管理 1Password secret
+- 依赖：`op` + tmux + 登录态
+- 当前状态：**检查通过，但未实测 secret 操作**
+- 备注：必须在 tmux 中使用
+
+### 7.10 tavily / tavily-search
+- 用途：联网搜索、网页提取、研究
+- 依赖：Tavily 配置
+- 当前状态：**可用**
+
+### 7.11 Code
+- 用途：代码任务工作流规范
+- 依赖：无明显额外系统依赖
+- 当前状态：**可用**
+- 备注：偏方法论，不是外部服务类技能
+
+### 7.12 skill-creator
+- 用途：创建或改进技能
+- 依赖：无明显硬依赖
+- 当前状态：**可用**
+- 备注：存在重复来源
+
+### 7.13 session-logs
+- 用途：搜索/分析历史会话日志
+- 依赖：`rg`
+- 当前状态：**不可用，缺 `rg`**
+- 备注：虽然有用户版和系统版两个说明，但底层依赖没齐
+
+### 7.14 notion
+- 用途：Notion 页面、数据库、block 管理
+- 依赖：`NOTION_API_KEY`
+- 当前状态：**不可用，配置不完整**
+
+### 7.15 slack
+- 用途：Slack 消息和交互操作
+- 依赖：channels.slack 配置
+- 当前状态：**不可用，配置不完整**
+
+### 7.16 discord
+- 用途：Discord 通道操作
+- 依赖：channels.discord.token
+- 当前状态：**不可用，配置不完整**
+
+### 7.17 coding-agent
+- 用途：代理 Codex / Claude Code / Pi 等外部 coding agent
+- 依赖：任一相关 agent CLI 存在
+- 当前状态：**不可用，缺依赖**
+
+---
+
+## 8. boss 视角下的最终结论
+
+### 8.1 当前真正能打的能力
+这台机器现在最稳、最值得直接拿来做事的是：
+- **Feishu 全家桶**
+- **GitHub**
+- **Tavily 联网搜索/研究**
+- **tmux / 基础工程流**
+- **代码/内容/研究类多数用户技能**
+
+### 8.2 当前主要问题
+不是技能少，而是三个问题：
+1. **重复技能存在，版本治理混乱**
+2. **36 个技能缺依赖或缺配置**
+3. **很多技能只是“检查通过”，还没做真实 smoke test**
+
+### 8.3 现在最该做的，不是继续加技能
+最该做的是三件事：
+1. **定主版本，清理重复技能**
+2. **补高价值缺依赖**，优先：session-logs、notion、openai-whisper-api、slack、discord
+3. **做前 20 个高频技能的最小可用验证**，把“能装”变成“能打”
+
+---
+
+## 9. 建议的下一步执行清单
+
+### 方案 A，直接修复关键缺项
+优先修：
+- session-logs → 装 `rg`
+- notion → 配 `NOTION_API_KEY`
+- openai-whisper-api → 配 `OPENAI_API_KEY`
+- slack / discord → 补 channel 配置
+- coding-agent → 明确要走哪套 agent CLI
+
+### 方案 B，直接做技能治理
+我可以继续输出一份：
+- 《重复技能治理方案》
+- 逐项标出：保留谁，删除谁，为什么
+
+### 方案 C，做高频技能验活表
+我可以继续逐个跑 smoke test，生成：
+- 技能名
+- 是否真能跑
+- 最小成功样例
+- 当前报错
+- 修复建议
+
+---
+
+## 10. 本报告的可信度说明
+本报告基于以下事实来源：
+- `openclaw status`
+- `openclaw skills check`
+- 实际技能目录扫描
+- 重复技能路径核对
+- 抽样读取多个 SKILL.md
+- 已实际验证 GitHub 能上传文件
+
+因此，这份报告的结论属于：
+- **系统状态：高可信**
+- **依赖缺失：高可信**
+- **重复技能存在：高可信**
+- **所有技能都能否真正跑通：中等可信，需要继续 smoke test 才能定案**
