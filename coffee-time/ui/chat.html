@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>聊天咨询 - 职脉深聊</title>
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/pages/chat.css">
+</head>
+<body class="text-white h-screen overflow-hidden">
+
+  <div class="flex h-full">
+    <!-- 左侧边栏 -->
+    <aside class="w-80 glass hidden md:flex flex-col border-r border-white/10 chat-sidebar" id="chatSidebar" aria-label="会话列表">
+      <div class="p-4 border-b border-white/10">
+        <a href="index.html" class="flex items-center space-x-3 mb-4" aria-label="返回首页">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <span class="text-xl font-bold gradient-text">职脉深聊</span>
+        </a>
+        <div class="relative">
+          <label for="searchConv" class="sr-only">搜索对话</label>
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="search" id="searchConv" placeholder="搜索对话..." class="input-field w-full pl-9 pr-3 py-2 rounded-lg text-sm text-white placeholder-white/40">
+        </div>
+      </div>
+      <div class="flex-1 overflow-y-auto p-2" role="list">
+        <div class="conversation-item active glass-light rounded-xl p-3 mb-2 cursor-pointer border border-transparent" role="listitem" tabindex="0" aria-current="true">
+          <div class="flex items-start gap-3">
+            <div class="relative flex-shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-lg font-bold" aria-hidden="true">张</div>
+              <span class="online-indicator absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#0f172a]" aria-label="在线"></span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="font-semibold text-sm">张明远</h3>
+                <span class="text-xs text-white/40">刚刚</span>
+              </div>
+              <p class="text-sm text-white/60 truncate">好的，我来帮你梳理一下...</p>
+            </div>
+          </div>
+        </div>
+        <div class="conversation-item glass-light rounded-xl p-3 mb-2 cursor-pointer border border-transparent" role="listitem" tabindex="0">
+          <div class="flex items-start gap-3">
+            <div class="relative flex-shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-lg font-bold" aria-hidden="true">李</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="font-semibold text-sm">李雪婷</h3>
+                <span class="text-xs text-white/40">昨天</span>
+              </div>
+              <p class="text-sm text-white/60 truncate">非常感谢您的指导！</p>
+            </div>
+          </div>
+        </div>
+        <div class="conversation-item glass-light rounded-xl p-3 mb-2 cursor-pointer border border-transparent" role="listitem" tabindex="0">
+          <div class="flex items-start gap-3">
+            <div class="relative flex-shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-lg font-bold" aria-hidden="true">王</div>
+              <span class="online-indicator absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#0f172a]" aria-label="在线"></span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="font-semibold text-sm">王建华</h3>
+                <span class="text-xs text-white/40">3天前</span>
+              </div>
+              <p class="text-sm text-white/60 truncate">关于技术架构的问题...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 border-t border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center" aria-hidden="true"><span class="font-semibold">我</span></div>
+          <div class="flex-1">
+            <p class="font-medium text-sm">我的账户</p>
+            <p class="text-xs text-white/50">会员用户</p>
+          </div>
+          <button id="clearChatBtn" class="p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="清空当前会话" title="清空会话">
+            <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主聊天区域 -->
+    <main class="flex-1 flex flex-col" role="main">
+      <!-- 聊天头部 -->
+      <header class="glass p-4 flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center gap-4">
+          <button class="md:hidden p-2 hover:bg-white/5 rounded-lg transition-colors" id="sidebarToggle" aria-label="打开会话列表" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="relative">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-lg font-bold" aria-hidden="true">张</div>
+            <span class="online-indicator absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#0f172a]" aria-label="在线"></span>
+          </div>
+          <div>
+            <h2 class="font-semibold text-lg">张明远</h2>
+            <p class="text-sm text-white/60 flex items-center gap-1">
+              <span class="w-2 h-2 bg-green-400 rounded-full" aria-hidden="true"></span>
+              在线 · 字节跳动 · 产品总监
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="语音通话">
+            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </button>
+          <button class="p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="视频通话">
+            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- 消息区域 -->
+      <div class="flex-1 overflow-y-auto p-4 md:p-6" id="messagesContainer" role="log" aria-label="聊天消息" aria-live="polite">
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div class="flex items-center justify-center">
+            <span class="glass-light px-4 py-1 rounded-full text-xs text-white/50">今天</span>
+          </div>
+
+          <!-- 初始消息 -->
+          <div class="flex gap-3 message-bubble">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-base font-bold flex-shrink-0" aria-hidden="true">张</div>
+            <div class="flex-1 max-w-[70%]">
+              <div class="glass-light rounded-2xl rounded-tl-sm p-4">
+                <p class="text-white/90 leading-relaxed">你好！很高兴能和你交流。请先简单介绍一下你的背景和目前遇到的问题，这样我能更好地帮助你。</p>
+              </div>
+              <time class="text-xs text-white/40 mt-1 block" datetime="14:23">14:23</time>
+            </div>
+          </div>
+
+          <div class="flex gap-3 justify-end message-bubble">
+            <div class="flex-1 max-w-[70%]">
+              <div class="bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-2xl rounded-tr-sm p-4 border border-blue-500/20">
+                <p class="text-white/90 leading-relaxed">张老师好！我目前是一名产品经理，工作3年了，最近在职业发展上遇到了一些瓶颈，想请教一下如何更好地规划未来的职业路径。</p>
+              </div>
+              <time class="text-xs text-white/40 mt-1 block text-right" datetime="14:25">14:25</time>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-base font-bold flex-shrink-0" aria-hidden="true">我</div>
+          </div>
+
+          <div class="flex gap-3 message-bubble">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-base font-bold flex-shrink-0" aria-hidden="true">张</div>
+            <div class="flex-1 max-w-[70%]">
+              <div class="glass-light rounded-2xl rounded-tl-sm p-4">
+                <p class="text-white/90 leading-relaxed">很好的问题！3年是一个关键的成长阶段。能否分享一下：</p>
+                <ul class="text-white/90 leading-relaxed mt-2 space-y-1">
+                  <li>• 你目前负责的产品类型和规模？</li>
+                  <li>• 你觉得自己的核心优势是什么？</li>
+                  <li>• 长期来看，你更想往管理方向还是专家方向发展？</li>
+                </ul>
+              </div>
+              <time class="text-xs text-white/40 mt-1 block" datetime="14:28">14:28</time>
+            </div>
+          </div>
+
+          <!-- 打字指示器（默认隐藏，由 JS 控制） -->
+          <div class="flex gap-3 message-bubble" id="typingIndicator" style="display:none" aria-live="polite" aria-label="对方正在输入">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-base font-bold flex-shrink-0" aria-hidden="true">张</div>
+            <div class="glass-light rounded-2xl rounded-tl-sm p-4">
+              <div class="typing-indicator flex items-center gap-1.5">
+                <span class="w-2 h-2 bg-white/50 rounded-full" aria-hidden="true"></span>
+                <span class="w-2 h-2 bg-white/50 rounded-full" aria-hidden="true"></span>
+                <span class="w-2 h-2 bg-white/50 rounded-full" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 输入区域 -->
+      <div class="glass p-4 border-t border-white/10">
+        <div class="max-w-3xl mx-auto">
+          <!-- 快捷提示 -->
+          <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="快捷回复">
+            <button class="glass-light quick-reply-btn px-3 py-1.5 rounded-full text-xs text-white/70" data-quick-reply="关于数据分析，我应该如何提升？" aria-label="快捷回复：关于数据分析">📊 关于数据分析</button>
+            <button class="glass-light quick-reply-btn px-3 py-1.5 rounded-full text-xs text-white/70" data-quick-reply="请给我一些职业规划建议" aria-label="快捷回复：职业规划建议">🎯 职业规划建议</button>
+            <button class="glass-light quick-reply-btn px-3 py-1.5 rounded-full text-xs text-white/70" data-quick-reply="面试前应该如何准备？" aria-label="快捷回复：面试准备">📝 面试准备</button>
+          </div>
+          <div class="flex items-end gap-3">
+            <div class="flex-1 relative">
+              <label for="messageInput" class="sr-only">输入消息</label>
+              <div class="glass-light rounded-2xl border border-white/10">
+                <textarea
+                  id="messageInput"
+                  placeholder="输入消息..."
+                  rows="1"
+                  class="w-full px-4 py-3 bg-transparent text-white placeholder-white/40 resize-none border-none focus:outline-none max-h-32"
+                  style="min-height: 48px;"
+                  aria-label="输入消息"
+                  disabled
+                ></textarea>
+                <div class="flex items-center justify-between px-3 pb-3">
+                  <div class="flex items-center gap-1">
+                    <button class="p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="添加附件">
+                      <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button class="p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="表情">
+                      <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button id="sendButton" class="btn-primary p-3 rounded-xl" aria-label="发送消息" disabled aria-disabled="true">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
+          </div>
+          <div class="flex items-center justify-center gap-1.5 mt-3">
+            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span class="text-xs text-white/40">消息传输加密 · 内容仅会话双方可见</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 移动端侧边栏遮罩 -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" aria-hidden="true"></div>
+
+  <script src="/assets/scripts/common/dom.js"></script>
+  <script src="/assets/scripts/common/navigation.js"></script>
+  <script src="/assets/scripts/pages/chat.js"></script>
+  <script>
+    // 移动端侧边栏切换
+    (function () {
+      var toggle = document.getElementById('sidebarToggle');
+      var sidebar = document.getElementById('chatSidebar');
+      var overlay = document.getElementById('sidebarOverlay');
+      if (toggle && sidebar) {
+        function openSidebar() {
+          sidebar.classList.add('open');
+          sidebar.classList.remove('hidden');
+          if (overlay) overlay.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+        function closeSidebar() {
+          sidebar.classList.remove('open');
+          if (overlay) overlay.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+        toggle.addEventListener('click', function () {
+          sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+        });
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+      }
+    })();
+  </script>
+  <script src="/assets/scripts/common/pwa.js"></script>
+</body>
+</html>

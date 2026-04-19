@@ -1,0 +1,39 @@
+/**
+ * home.css - 首页专属样式
+ */
+
+/* ========== 功能卡片图标 ========== */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== 步骤指示器 ========== */
+.step-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .step-connector {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(96, 165, 250, 0.3), rgba(167, 139, 250, 0.3));
+  }
+}
+
+/* ========== 统计数字 ========== */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ========== Hero 区头像占位 ========== */
+.avatar-placeholder {
+  border: 2px solid rgba(15, 23, 42, 0.8);
+}

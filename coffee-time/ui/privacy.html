@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>隐私与安全 - 职脉深聊</title>
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/pages/privacy.css">
+</head>
+<body class="text-white">
+
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass" role="navigation" aria-label="主导航">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-3" aria-label="职脉深聊首页">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold gradient-text">职脉深聊</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-white/70 hover:text-white transition-colors">首页</a>
+          <a href="mentors.html" class="nav-link text-white/70 hover:text-white transition-colors">导师列表</a>
+          <a href="privacy.html" class="nav-link text-white active" aria-current="page">隐私与安全</a>
+          <a href="verify.html" class="nav-link text-white/70 hover:text-white transition-colors">身份验证</a>
+        </div>
+        <a href="chat.html" class="btn-primary px-6 py-2.5 rounded-full text-white font-medium">开始咨询</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="pt-28 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- 页头 -->
+      <section class="text-center mb-16 fade-in">
+        <div class="inline-flex items-center glass-light px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span class="text-sm text-white/80">隐私优先设计</span>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold mb-6">你的隐私，我们的底线</h1>
+        <p class="text-xl text-white/60 max-w-2xl mx-auto">
+          我们采用隐私优先的设计理念，从架构层面保护你的个人信息和咨询内容。以下是我们当前已采取的措施和持续建设的方向。
+        </p>
+      </section>
+
+      <!-- 目录 -->
+      <nav class="glass rounded-2xl p-6 mb-12 fade-in" aria-label="页面目录">
+        <h2 class="text-lg font-semibold mb-4">目录</h2>
+        <div class="grid md:grid-cols-2 gap-2">
+          <a href="#data-collection" class="toc-link">→ 我们收集哪些数据</a>
+          <a href="#data-protection" class="toc-link">→ 数据保护措施</a>
+          <a href="#consultation-privacy" class="toc-link">→ 咨询内容保护</a>
+          <a href="#identity-verification" class="toc-link">→ 身份验证与隐私</a>
+          <a href="#third-party" class="toc-link">→ 第三方服务说明</a>
+          <a href="#your-rights" class="toc-link">→ 你的权利</a>
+          <a href="#roadmap" class="toc-link">→ 持续建设中的安全目标</a>
+        </div>
+      </nav>
+
+      <!-- 数据收集 -->
+      <section id="data-collection" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">我们收集哪些数据</h2>
+        <div class="glass rounded-2xl p-6 space-y-4">
+          <p class="text-white/70">我们遵循<strong class="text-white">最小化数据收集</strong>原则，仅收集提供服务所必需的信息：</p>
+          <ul class="space-y-2 text-white/70">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 mt-1">•</span>
+              <span><strong class="text-white">账户信息：</strong>用户名、邮箱（用于登录和通知）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 mt-1">•</span>
+              <span><strong class="text-white">身份信息：</strong>仅导师申请时需要，用于验证职业背景</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 mt-1">•</span>
+              <span><strong class="text-white">咨询记录：</strong>预约时间、会话时长、评价内容</span>
+            </li>
+          </ul>
+          <p class="text-white/50 text-sm mt-4">我们<strong>不会</strong>收集：精确地理位置、设备指纹、浏览行为画像等与咨询服务无关的数据。</p>
+        </div>
+      </section>
+
+      <!-- 数据保护 -->
+      <section id="data-protection" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">数据保护措施</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">传输加密</h3>
+            <p class="text-white/60 text-sm">所有数据通过 HTTPS (TLS 1.2+) 传输，确保数据在传输过程中不被窃听。</p>
+          </div>
+          <div class="glass rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">密码安全</h3>
+            <p class="text-white/60 text-sm">用户密码使用 bcrypt 算法加密存储，即使数据库泄露也无法还原原始密码。</p>
+          </div>
+          <div class="glass rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">访问控制</h3>
+            <p class="text-white/60 text-sm">严格的权限管理，平台运营人员无法直接查看用户咨询内容。</p>
+          </div>
+          <div class="glass rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">数据留存策略</h3>
+            <p class="text-white/60 text-sm">inactive 超过 2 年的账户数据将自动匿名化处理。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 咨询内容保护 -->
+      <section id="consultation-privacy" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">咨询内容保护</h2>
+        <div class="glass rounded-2xl p-6 space-y-4">
+          <p class="text-white/70">我们深知职场咨询内容的敏感性，因此采取以下措施：</p>
+          <ul class="space-y-3 text-white/70">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>咨询内容仅对会话双方可见，平台不会主动分析或提取咨询内容用于商业目的</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>导师无法查看用户与其他导师的咨询记录</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>用户可以随时删除自己的咨询历史</span>
+            </li>
+          </ul>
+          <div class="glass-light rounded-xl p-4 mt-4">
+            <p class="text-white/50 text-sm">
+              <strong class="text-white/70">说明：</strong> 当前阶段咨询内容以明文存储于服务器。我们正在规划消息加密存储方案，后续版本将实现端到端加密，届时即使数据库被访问，咨询内容也无法被读取。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 身份验证与隐私 -->
+      <section id="identity-verification" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">身份验证与隐私</h2>
+        <div class="glass rounded-2xl p-6 space-y-4">
+          <p class="text-white/70">导师身份验证是平台信任体系的基础，但我们也高度重视验证过程中的隐私保护：</p>
+          <ul class="space-y-3 text-white/70">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>上传的工牌/证明文件<strong class="text-white">不会</strong>永久保存——验证完成后将被删除或脱敏处理</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>验证结果仅以"已验证/未验证"状态展示，<strong class="text-white">不会</strong>公开具体的公司或职位信息（除非导师自行选择公开）</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-400 mt-1">•</span>
+              <span>社交账号（LinkedIn/脉脉）验证仅用于交叉验证，<strong class="text-white">不会</strong>获取或存储你的社交账号内容</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 第三方服务 -->
+      <section id="third-party" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">第三方服务说明</h2>
+        <div class="glass rounded-2xl p-6 space-y-4">
+          <p class="text-white/70">我们使用以下第三方服务，它们各自受其隐私政策约束：</p>
+          <div class="space-y-3">
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">支付服务</h4>
+              <p class="text-white/60 text-sm">支付信息直接由支付服务商处理，我们不存储你的银行卡号或支付凭证。</p>
+            </div>
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">字体与前端框架</h4>
+              <p class="text-white/60 text-sm">Google Fonts 和 Tailwind CSS CDN 会记录你的 IP 地址以提供服务。我们计划后续将字体自托管以减少第三方依赖。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 你的权利 -->
+      <section id="your-rights" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">你的权利</h2>
+        <div class="glass rounded-2xl p-6">
+          <p class="text-white/70 mb-4">根据适用的数据保护法规，你享有以下权利：</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">📥 访问权</h4>
+              <p class="text-white/60 text-sm">你可以请求获取我们存储的关于你的所有数据</p>
+            </div>
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">🗑️ 删除权</h4>
+              <p class="text-white/60 text-sm">你可以要求删除你的账户及所有关联数据</p>
+            </div>
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">✏️ 更正权</h4>
+              <p class="text-white/60 text-sm">你可以随时更正不准确或不完整的个人信息</p>
+            </div>
+            <div class="glass-light rounded-xl p-4">
+              <h4 class="font-medium text-white mb-1">📤 携带权</h4>
+              <p class="text-white/60 text-sm">你可以导出自己的数据，格式为机器可读</p>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm mt-6">如需行使上述权利，请通过 <a href="mailto:privacy@zhimai-shenliao.com" class="text-blue-400 hover:underline">privacy@zhimai-shenliao.com</a> 联系我们。</p>
+        </div>
+      </section>
+
+      <!-- 持续建设 -->
+      <section id="roadmap" class="privacy-section mb-16 fade-in">
+        <h2 class="text-2xl font-bold mb-4">持续建设中的安全目标</h2>
+        <div class="glass rounded-2xl p-6">
+          <p class="text-white/70 mb-6">安全是一个持续的过程。以下是我们计划在后续版本中实现的安全增强：</p>
+          <div class="space-y-4">
+            <div class="timeline-item">
+              <h4 class="font-medium text-white">消息加密存储</h4>
+              <p class="text-white/60 text-sm mt-1">实现咨询内容的加密存储，确保数据库层面的内容保护</p>
+              <span class="text-yellow-400 text-xs mt-2 inline-block">规划中</span>
+            </div>
+            <div class="timeline-item">
+              <h4 class="font-medium text-white">端到端加密通信</h4>
+              <p class="text-white/60 text-sm mt-1">实现客户端到客户端的端到端加密，平台无法读取咨询内容</p>
+              <span class="text-yellow-400 text-xs mt-2 inline-block">规划中</span>
+            </div>
+            <div class="timeline-item">
+              <h4 class="font-medium text-white">安全审计与渗透测试</h4>
+              <p class="text-white/60 text-sm mt-1">定期进行第三方安全审计，主动发现并修复潜在风险</p>
+              <span class="text-yellow-400 text-xs mt-2 inline-block">规划中</span>
+            </div>
+            <div class="timeline-item">
+              <h4 class="font-medium text-white">数据隔离架构</h4>
+              <p class="text-white/60 text-sm mt-1">身份数据库与业务数据库物理隔离，降低数据泄露风险</p>
+              <span class="text-yellow-400 text-xs mt-2 inline-block">规划中</span>
+            </div>
+          </div>
+          <div class="glass-light rounded-xl p-4 mt-6">
+            <p class="text-white/50 text-sm">
+              以上为规划方向，实际实施时间和范围可能根据业务需求调整。我们承诺在重大安全能力上线前，通过站内通知和邮件告知用户。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 底部行动 -->
+      <section class="text-center mb-16 fade-in">
+        <div class="glass rounded-2xl p-8">
+          <h3 class="text-xl font-bold mb-3">有问题或建议？</h3>
+          <p class="text-white/60 mb-6">如果你对我们的隐私政策有任何疑问或建议，欢迎联系我们。</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:privacy@zhimai-shenliao.com" class="btn-primary px-6 py-3 rounded-xl font-medium">发送邮件</a>
+            <a href="index.html" class="glass-light px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-colors">返回首页</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <span class="text-sm text-white/50">© 2024 职脉深聊. 保留所有权利。</span>
+        </div>
+        <div class="flex items-center space-x-6 text-sm text-white/50">
+          <a href="privacy.html" class="hover:text-white transition-colors">隐私政策</a>
+          <a href="#" class="hover:text-white transition-colors">服务条款</a>
+          <a href="#" class="hover:text-white transition-colors">帮助中心</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/scripts/common/dom.js"></script>
+  <script src="/assets/scripts/common/navigation.js"></script>
+  <script src="/assets/scripts/pages/privacy.js"></script>
+  <script src="/assets/scripts/common/pwa.js"></script>
+</body>
+</html>

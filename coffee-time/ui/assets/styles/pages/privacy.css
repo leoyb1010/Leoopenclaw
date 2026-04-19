@@ -1,0 +1,51 @@
+/**
+ * privacy.css - 隐私页专属样式
+ */
+
+.privacy-section {
+  scroll-margin-top: 5rem;
+}
+
+.privacy-section h2 {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.privacy-section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 3px;
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+  border-radius: 2px;
+}
+
+.toc-link {
+  display: block;
+  padding: 0.375rem 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.toc-link:hover {
+  color: #fff;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #3b82f6;
+}

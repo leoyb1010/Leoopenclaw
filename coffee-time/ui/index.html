@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>职脉深聊 - 专业职场咨询平台</title>
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/pages/home.css">
+</head>
+<body class="text-white overflow-x-hidden">
+
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass" role="navigation" aria-label="主导航">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-3" aria-label="职脉深聊首页">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <span class="text-xl font-bold gradient-text">职脉深聊</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-white/90 hover:text-white transition-colors active" aria-current="page">首页</a>
+          <a href="mentors.html" class="nav-link text-white/70 hover:text-white transition-colors">导师列表</a>
+          <a href="privacy.html" class="nav-link text-white/70 hover:text-white transition-colors">隐私与安全</a>
+          <a href="verify.html" class="nav-link text-white/70 hover:text-white transition-colors">成为导师</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="chat.html" class="btn-primary px-6 py-2.5 rounded-full text-white font-medium">开始咨询</a>
+          <!-- 移动端菜单按钮 -->
+          <button class="md:hidden p-2 hover:bg-white/5 rounded-lg" aria-label="打开菜单" data-mobile-menu aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <!-- 移动端菜单 -->
+      <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
+        <div class="flex flex-col space-y-3">
+          <a href="index.html" class="nav-link text-white/90 py-2">首页</a>
+          <a href="mentors.html" class="nav-link text-white/70 py-2">导师列表</a>
+          <a href="privacy.html" class="nav-link text-white/70 py-2">隐私与安全</a>
+          <a href="verify.html" class="nav-link text-white/70 py-2">成为导师</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区 -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <div class="inline-flex items-center glass-light px-4 py-2 rounded-full mb-6">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" aria-hidden="true"></span>
+            <span class="text-sm text-white/80">已帮助 10,000+ 职场人突破瓶颈</span>
+          </div>
+          <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            找对<span class="gradient-text">职场导师</span>，<br>少走十年弯路
+          </h1>
+          <p class="text-xl text-white/70 mb-8 leading-relaxed">
+            连接各行业资深从业者，1对1深度咨询，<br>助您在职场中脱颖而出
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="mentors.html" class="btn-primary px-8 py-4 rounded-xl text-white font-semibold text-center pulse-glow">探索导师</a>
+            <a href="verify.html" class="glass-light px-8 py-4 rounded-xl text-white font-semibold text-center hover:bg-white/10 transition-colors">成为导师</a>
+          </div>
+          <div class="flex items-center gap-6">
+            <div class="flex -space-x-3" aria-hidden="true">
+              <div class="w-10 h-10 rounded-full border-2 border-[#0f172a] bg-gradient-to-br from-blue-400 to-blue-600"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-[#0f172a] bg-gradient-to-br from-purple-400 to-purple-600"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-[#0f172a] bg-gradient-to-br from-pink-400 to-pink-600"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-[#0f172a] bg-gradient-to-br from-green-400 to-green-600"></div>
+            </div>
+            <div>
+              <div class="flex items-center gap-1" aria-label="评分 4.9 分，5000+ 条评价">
+                <span class="text-yellow-400" aria-hidden="true">★★★★★</span>
+              </div>
+              <p class="text-white/60 text-sm">4.9/5 · 5,000+ 评价</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative slide-in-right">
+          <div class="glass rounded-3xl p-8 float">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" aria-hidden="true">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg">张明远</h3>
+                <p class="text-white/60 text-sm">字节跳动 · 产品总监</p>
+              </div>
+            </div>
+            <div class="space-y-4 mb-6">
+              <div class="glass-light rounded-2xl p-4 max-w-[80%]">
+                <p class="text-white/90">您好，我想咨询一下产品经理的职业发展...</p>
+              </div>
+              <div class="glass rounded-2xl p-4 max-w-[80%] ml-auto bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+                <p class="text-white/90">没问题！我来帮你梳理一下职业规划...</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm text-white/50">
+              <span>14:30</span>
+              <span class="flex items-center gap-1">
+                <span class="w-2 h-2 bg-green-400 rounded-full" aria-hidden="true"></span>
+                在线
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色功能 -->
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">为什么选择职脉深聊</h2>
+        <p class="text-white/60 text-lg max-w-2xl mx-auto">我们专注于提供高质量的职场咨询服务，帮助你在关键节点做出正确决策</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="feature-card glass rounded-2xl p-8 text-center fade-in">
+          <div class="icon-wrapper w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">严格筛选导师</h3>
+          <p class="text-white/60">每位导师都经过企业背景验证和专业能力评估，确保咨询质量</p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-8 text-center fade-in" style="animation-delay:0.1s">
+          <div class="icon-wrapper w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">隐私安全保障</h3>
+          <p class="text-white/60">咨询内容加密存储，身份信息可选择性公开，让你放心交流</p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-8 text-center fade-in" style="animation-delay:0.2s">
+          <div class="icon-wrapper w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">高效匹配</h3>
+          <p class="text-white/60">根据你的行业、职阶和需求，智能推荐最合适的导师</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用流程 -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">三步开启咨询</h2>
+        <p class="text-white/60 text-lg">简单几步，连接行业专家</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center fade-in">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+          <h3 class="text-lg font-semibold mb-2">选择导师</h3>
+          <p class="text-white/60 text-sm">浏览导师列表，根据行业、经验和评价选择合适的导师</p>
+        </div>
+        <div class="text-center fade-in" style="animation-delay:0.15s">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+          <h3 class="text-lg font-semibold mb-2">预约时间</h3>
+          <p class="text-white/60 text-sm">选择方便的时间段，完成支付即可预约成功</p>
+        </div>
+        <div class="text-center fade-in" style="animation-delay:0.3s">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+          <h3 class="text-lg font-semibold mb-2">开始咨询</h3>
+          <p class="text-white/60 text-sm">在约定时间进入聊天室，与导师进行 1 对 1 深度交流</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 统计数据 -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="glass rounded-2xl p-6 text-center stat-card">
+          <div class="stat-number gradient-text">10K+</div>
+          <p class="text-white/60 text-sm mt-1">服务用户</p>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center stat-card">
+          <div class="stat-number gradient-text">200+</div>
+          <p class="text-white/60 text-sm mt-1">认证导师</p>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center stat-card">
+          <div class="stat-number gradient-text">4.9</div>
+          <p class="text-white/60 text-sm mt-1">平均评分</p>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center stat-card">
+          <div class="stat-number gradient-text">98%</div>
+          <p class="text-white/60 text-sm mt-1">满意度</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6">准备好突破职场瓶颈了吗？</h2>
+      <p class="text-white/60 text-lg mb-8">加入 10,000+ 职场人的行列，让行业专家为你的职业发展保驾护航</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mentors.html" class="btn-primary px-8 py-4 rounded-xl text-white font-semibold pulse-glow">立即开始</a>
+        <a href="verify.html" class="glass-light px-8 py-4 rounded-xl text-white font-semibold hover:bg-white/10 transition-colors">成为导师</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" aria-hidden="true">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <span class="text-sm text-white/50">© 2024 职脉深聊. 保留所有权利。</span>
+        </div>
+        <div class="flex items-center space-x-6 text-sm text-white/50">
+          <a href="privacy.html" class="hover:text-white transition-colors">隐私政策</a>
+          <a href="#" class="hover:text-white transition-colors">服务条款</a>
+          <a href="#" class="hover:text-white transition-colors">帮助中心</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/scripts/common/dom.js"></script>
+  <script src="/assets/scripts/common/navigation.js"></script>
+  <script>
+    // 首页特有：移动端菜单
+    Navigation.initMobileMenu('mobileMenu');
+  </script>
+  <script src="/assets/scripts/common/pwa.js"></script>
+</body>
+</html>
